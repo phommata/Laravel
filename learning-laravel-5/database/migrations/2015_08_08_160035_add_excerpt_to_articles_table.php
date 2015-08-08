@@ -13,7 +13,7 @@ class AddExcerptToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            //
+            $table->text('excerpt')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class AddExcerptToArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-            //
+            $table->dropColumn('excerpt');
         });
     }
 }
