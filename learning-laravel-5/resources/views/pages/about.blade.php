@@ -2,17 +2,19 @@
 
 @section('content')
 
-@if ($first == 'Andrew')
+<h1>About</h1>
 
-    <h1>Hi Andrew</h1>
+<h3>People I Like:</h3>
 
-@else
+<ul>
 
-    <h1>Else</h1>
+    @foreach ($people as $person)
 
-@endif
+        <li>{{ $person }}</li>
 
-<h1>About Me {{ $first }} {{ $last }}</h1> <!-- Unescaped data-->
+    @endforeach
+
+</ul>
 
 <p>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eum eveniet exercitationem fugiat harum ipsa maxime nisi nobis perferendis quo recusandae, sit? Architecto commodi eaque, eos iure quidem sunt voluptates!
