@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if ($first == 'Andrew')
+
+    <h1>Hi Andrew</h1>
+
+@else
+
+    <h1>Else</h1>
+
+@endif
+
 <h1>About Me {{ $first }} {{ $last }}</h1> <!-- Unescaped data-->
 
 <p>
