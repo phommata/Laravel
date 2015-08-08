@@ -4,17 +4,21 @@
 
 <h1>About</h1>
 
-<h3>People I Like:</h3>
+@if (count($people))
 
-<ul>
+    <h3>People I Like:</h3>
 
-    @foreach ($people as $person)
+    <ul>
 
-        <li>{{ $person }}</li>
+        @foreach ($people as $person)
 
-    @endforeach
+            <li>{{ $person }}</li>
 
-</ul>
+        @endforeach
+
+    </ul>
+
+@endif
 
 <p>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eum eveniet exercitationem fugiat harum ipsa maxime nisi nobis perferendis quo recusandae, sit? Architecto commodi eaque, eos iure quidem sunt voluptates!

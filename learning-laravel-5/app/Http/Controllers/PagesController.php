@@ -12,7 +12,7 @@ class PagesController extends Controller
     public function about(){
 
         $people = [
-            'Andrew Phommathep', 'Bruce Wayne', 'Steve Rogers'
+//            'Andrew Phommathep', 'Bruce Wayne', 'Steve Rogers'
         ];
 
         return view('pages.about', compact('people'));
