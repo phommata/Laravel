@@ -1,10 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+@extends('app')
+
+@section('content')
 
 <h1>About Me {{ $first }} {{ $last }}</h1> <!-- Unescaped data-->
 
@@ -12,5 +8,4 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea eum eveniet exercitationem fugiat harum ipsa maxime nisi nobis perferendis quo recusandae, sit? Architecto commodi eaque, eos iure quidem sunt voluptates!
 </p>
 
-</body>
-</html>
+@stop
