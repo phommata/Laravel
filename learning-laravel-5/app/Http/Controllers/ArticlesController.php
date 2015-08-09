@@ -17,4 +17,9 @@ class ArticlesController extends Controller
         return view('articles.index', compact('articles'));
 //        return view('articles.index')->with('articles', $articles);
     }
+
+    public function show($id){
+
+        return $id;
+    }
 }
