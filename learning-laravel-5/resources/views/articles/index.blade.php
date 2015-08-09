@@ -12,7 +12,7 @@
 
             <h2>
 
-                <a href="{{ action('ArticlesController@show', [$article->id]) }}">{{ $article->title }}</a>
+                <a href="{{ url('/articles', $article->id) }}">{{ $article->title }}</a>
 
             </h2>
 
