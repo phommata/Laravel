@@ -22,8 +22,10 @@ class ArticlesController extends Controller
 
         $article = Article::find($id);
 
-        dd($article);
-        
+        if (is_null($article)){
+            abort(404);
+        }
+
         return $article;
     }
 }
