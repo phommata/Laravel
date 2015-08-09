@@ -23,6 +23,8 @@ Route::get('contact', 'PagesController@contact');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('articles', 'ArticlesController@index');
+
 //Route::controllers([
 //    'auth', 'Auth\AuthController',
 //    'password', 'Auth\PasswordController',
