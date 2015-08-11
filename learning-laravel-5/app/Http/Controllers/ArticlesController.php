@@ -33,7 +33,7 @@ class ArticlesController extends Controller
 
     public function store(){
 
-        $input = Request::all();
+        $input = Request::get('title');
 
         return $input;
 
