@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -28,5 +29,13 @@ class ArticlesController extends Controller
     public function create(){
 
         return view('articles.create');
+    }
+
+    public function store(){
+
+        $input = Request::all();
+
+        return $input;
+
     }
 }

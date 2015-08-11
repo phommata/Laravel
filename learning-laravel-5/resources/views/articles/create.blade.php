@@ -6,7 +6,7 @@
 
     <hr>
 
-    {!! Form::open() !!}
+    {!! Form::open(['url' => 'articles']) !!}
 
         <div class="form-group">
 
