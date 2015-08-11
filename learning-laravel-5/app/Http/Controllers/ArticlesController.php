@@ -33,9 +33,11 @@ class ArticlesController extends Controller
 
     public function store(){
 
-        $input = Request::get('title');
+        $input = Request::all();
 
-        return $input;
+        Article::create($input);
+
+        return redirect('articles');
 
     }
 }
