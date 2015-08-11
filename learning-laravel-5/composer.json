@@ -9,7 +9,7 @@
         "laravel/framework": "5.1.*",
         "symfony/console": "^2.7@dev",
         "doctrine/dbal": "^2.6@dev",
-        "laravelcollective/html": "~5.0"
+        "laravelcollective/html": "5.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
