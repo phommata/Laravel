@@ -25,7 +25,7 @@ class ArticlesController extends Controller
 
         $article = Article::findOrFail($id);
 
-        dd($article->created_at->addDays(8));
+        dd($article->created_at->addDays(8)->format('Y-m'));
 
         return view('articles.show', compact('article'));
     }
