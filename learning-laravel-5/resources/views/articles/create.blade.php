@@ -46,4 +46,6 @@
 
     {!! Form::close() !!}
 
+    {{ var_dump($errors) }}
+
 @stop
