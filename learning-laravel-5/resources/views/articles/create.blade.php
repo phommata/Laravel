@@ -32,7 +32,7 @@
 
             {!! Form::label('published_at', 'Published On: ') !!}
 
-            {!! Form::input('date', 'published_at', null, ['class' => 'form-control']) !!}
+            {!! Form::input('date', 'published_at', Carbon\Carbon::now(), ['class' => 'form-control']) !!}
 
         </div>
 
