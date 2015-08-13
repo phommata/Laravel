@@ -26,7 +26,7 @@ class CreateArticleRequest extends Request
         return [
             'title' => 'required',
             'body' => 'required',
-            'published_at' => 'required|date'
+            'published_at' => ['required', 'date']
         ];
     }
 }
