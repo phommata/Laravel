@@ -9,6 +9,7 @@ use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
@@ -54,5 +55,12 @@ class ArticlesController extends Controller
         $article = Article::findOrFail($id);
 
         return view('articles.edit', compact('article'));
+    }
+
+    public function update($id, Request $request){
+
+        $article = Article::findOrFail($id);
+
+        $article->update($request->all());
     }
 }
