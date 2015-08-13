@@ -4,7 +4,7 @@
 
     <h1>Edit: {!! $article->title !!}</h1>
 
-    {!! Form::open(['method' => 'PATCH', 'action' => ['ArticlesController@update', $article->id]]) !!}
+    {!! Form::model($article, ['method' => 'PATCH', 'action' => ['ArticlesController@update', $article->id]]) !!}
 
     <div class="form-group">
 
