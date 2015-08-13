@@ -23,10 +23,18 @@ class CreateArticleRequest extends Request
      */
     public function rules()
     {
-        return [
+        $rules = [
             'title' => 'required|min:3',
             'body' => 'required',
             'published_at' => 'required|date'
         ];
+
+        if ($condition){
+
+            $rules['something_else'] = 'required'
+
+        }
+        
+        return $rules;
     }
 }
