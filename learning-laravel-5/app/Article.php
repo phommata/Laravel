@@ -13,6 +13,9 @@ class Article extends Model
         'published_at'
     ];
 
+    // Take timestamp and treat it as a Carbon instance
+    protected $dates = ['published_at'];
+
     public function scopePublished($query){
 
         $query->where('published_at', '<=', Carbon::now());
