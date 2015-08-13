@@ -24,9 +24,9 @@ class CreateArticleRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|min:3',
             'body' => 'required',
-            'published_at' => ['required', 'date']
+            'published_at' => 'required|date'
         ];
     }
 }

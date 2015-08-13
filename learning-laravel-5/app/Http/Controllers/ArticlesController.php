@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 //use Illuminate\Http\Request;
+use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
 use Request;
 
@@ -39,9 +40,12 @@ class ArticlesController extends Controller
     /**
      * Save a new article
      *
+     * @param CreateArticleRequest $request
      * @return Response
      */
-    public function store(){
+    public function store(CreateArticleRequest $request){
+
+        // validation
 
         Article::create(Request::all());
 
