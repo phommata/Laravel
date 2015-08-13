@@ -46,6 +46,10 @@
 
     {!! Form::close() !!}
 
-    {{ var_dump($errors) }}
+    @if($errors->any())
+
+        ul.alert.alert-danger
+
+    @endif
 
 @stop
