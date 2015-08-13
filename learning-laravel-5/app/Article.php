@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
@@ -16,7 +16,7 @@ class Article extends Model
     // setNameAttribute
     public function setPublishedAtAttribute($date){
 
-        $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
+        $this->attributes['published_at'] = Carbon::parse($date);
 
     }
 }
