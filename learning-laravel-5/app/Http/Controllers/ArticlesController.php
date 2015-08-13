@@ -6,7 +6,6 @@ use App\Article;
 //use Illuminate\Http\Request;
 use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
-use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -45,9 +44,7 @@ class ArticlesController extends Controller
      */
     public function store(CreateArticleRequest $request){
 
-        // validation
-
-        Article::create(Request::all());
+        Article::create($request->all());
 
         return redirect('articles');
 
