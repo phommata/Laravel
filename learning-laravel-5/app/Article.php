@@ -19,6 +19,12 @@ class Article extends Model
 
     }
 
+    public function scopeUnpublished($query){
+
+            $query->where('published_at', '>', Carbon::now());
+
+    }
+
     // setNameAttribute
     public function setPublishedAtAttribute($date){
 
