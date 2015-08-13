@@ -25,7 +25,7 @@ class ArticlesController extends Controller
 
         $article = Article::findOrFail($id);
 
-        dd($article->created_at);
+        dd($article->created_at->year);
 
         return view('articles.show', compact('article'));
     }
