@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 
 class ArticlesController extends Controller
 {
+
     public function index(){
 
 //        $articles = Article::order_by('published_at', 'desc')->get();
@@ -35,6 +36,11 @@ class ArticlesController extends Controller
         return view('articles.create');
     }
 
+    /**
+     * Save a new article
+     *
+     * @return Response
+     */
     public function store(){
 
         Article::create(Request::all());
