@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+//use Illuminate\Http\Request;
 use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
@@ -39,12 +39,9 @@ class ArticlesController extends Controller
     /**
      * Save a new article
      *
-     * @param Request $request
      * @return Response
      */
-    public function store(Request $request){
-
-        $this->validate($request, ['title' => 'required', 'body' => 'required']);
+    public function store(CreateArticleRequest $request){
 
         Article::create($request->all());
 
