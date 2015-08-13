@@ -26,13 +26,23 @@
 
         </div>
 
-    <!-- Add Article Form Input -->
+        <!-- Published_at Form Input -->
 
-    <div class="form-group">
+        <div class="form-group">
 
-        {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control']) !!}
+            {!! Form::label('published_at', 'Published On: ') !!}
 
-    </div>
+            {!! Form::input('date', 'published_at', null, ['class' => 'form-control']) !!}
+
+        </div>
+
+        <!-- Add Article Form Input -->
+
+        <div class="form-group">
+
+            {!! Form::submit('Add Article', ['class' => 'btn btn-primary form-control']) !!}
+
+        </div>
 
     {!! Form::close() !!}
 
