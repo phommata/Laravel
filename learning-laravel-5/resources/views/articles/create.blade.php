@@ -48,7 +48,7 @@
 
     @if($errors->any())
 
-        ul.alert.alert-danger
+        <ul class="alert alert-danger"></ul>
 
     @endif
 
