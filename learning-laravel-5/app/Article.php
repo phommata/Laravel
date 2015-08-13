@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Article extends Model
 {
@@ -11,4 +12,11 @@ class Article extends Model
         'body',
         'published_at'
     ];
+
+    // setNameAttribute
+    public function setPublishedAtAttribute($date){
+
+        $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
+
+    }
 }
