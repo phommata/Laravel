@@ -16,8 +16,6 @@ class ArticlesController extends Controller
 
     public function index(){
 
-        return \Auth::user()->name; // JSON of person currently signed in
-
 //        $articles = Article::order_by('published_at', 'desc')->get();
         $articles = Article::latest('published_at')->published()->get();
 
@@ -46,8 +44,12 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
-//        Auth::user();
-        Article::create($request->all());
+        $request = $request->all();
+        $request['user_id'] = Auth::id();
+        
+        Article::create($request->all()); // user_id => Auth::id()
+                                          // OR
+                                          // user_id => Auth::user()->id()
 
         return redirect('articles');
 
