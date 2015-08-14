@@ -40,7 +40,7 @@ class Article extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function owner()
+    public function writer()
     {
         return $this->belongsTo('App\User');
     }
