@@ -43,6 +43,7 @@ class Article extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');    // Article's table needs to have some kind of user_id column and
+                                                // that will be the hook, because we have the belongsTo relationship
     }
 }
