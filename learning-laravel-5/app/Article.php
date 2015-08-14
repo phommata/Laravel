@@ -37,10 +37,10 @@ class Article extends Model
 
     /**
      * An article is owned by a user.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function owner()
     {
         return $this->belongsTo('App\User');
     }
