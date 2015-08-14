@@ -44,9 +44,8 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
-        $request = $request->all();
-        $request['user_id'] = Auth::id();
-        
+        // Let Laravel do the work for us, reference relationship save new user articles
+        Auth::user()->articles()->save(new Article($request->all()));
         Article::create($request->all()); // user_id => Auth::id()
                                           // OR
                                           // user_id => Auth::user()->id()
