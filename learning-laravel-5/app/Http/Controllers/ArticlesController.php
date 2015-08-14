@@ -16,6 +16,8 @@ class ArticlesController extends Controller
 
     public function index(){
 
+        return \Auth::user(); // JSON of person currently signed in
+
 //        $articles = Article::order_by('published_at', 'desc')->get();
         $articles = Article::latest('published_at')->published()->get();
 
