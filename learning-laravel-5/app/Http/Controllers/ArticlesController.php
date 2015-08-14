@@ -44,6 +44,7 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
+//        Auth::user();
         Article::create($request->all());
 
         return redirect('articles');
