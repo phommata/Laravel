@@ -34,6 +34,11 @@ class ArticlesController extends Controller
 
     public function create(){
 
+        if (\Auth::guest())
+        {
+            return redirect('articles');
+        }
+
         return view('articles.create');
     }
 
