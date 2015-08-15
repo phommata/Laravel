@@ -46,8 +46,9 @@ class ArticlesController extends Controller
 
         // Let Laravel do the work for us, reference relationship save new user articles
         $article = new Article($request->all());
-        
-        Auth::user()->articles()->save($article);
+
+        // Auth::user()->articles; // Collection
+        \Auth::user()->articles()->save($article);
 
         return redirect('articles');
 
