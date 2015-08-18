@@ -13,10 +13,7 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('about', ['middleware' => 'auth', function(){
-
-    return 'this page will only show if the user is signed in';
-}]);
+Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
 
 Route::resource('articles', 'ArticlesController');
