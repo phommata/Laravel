@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Demo
+class RedirectIfNotAManager
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class Demo
      */
     public function handle($request, Closure $next)
     {
-        if ($request->has('foo')){ // stuck in loop if all routes
-            return redirect('articles');
-        }
+        $response = $next($request);
 
-        return $next($request);
+        // $request->user
+
+        return $response;
     }
 }
