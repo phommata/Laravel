@@ -29,6 +29,7 @@ class ArticlesController extends Controller
 
     public function show($id){
 
+        dd($id);
         $article = Article::findOrFail($id);
 
         dd($article->published_at);
