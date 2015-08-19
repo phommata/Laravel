@@ -27,16 +27,22 @@ class ArticlesController extends Controller
 //        return view('articles.index')->with('articles', $articles);
     }
 
-    public function show($id){
-
-        dd($id);
-        $article = Article::findOrFail($id);
-
-        dd($article->published_at);
+    /**
+     * Show a single article
+     *
+     * @param Article $article
+     * @return Response \Illuminate\View\View
+     */
+    public function show(Article $article){
 
         return view('articles.show', compact('article'));
     }
 
+    /**
+     * Create a new article
+     *
+     * @return Response
+     */
     public function create(){
 
         return view('articles.create');
