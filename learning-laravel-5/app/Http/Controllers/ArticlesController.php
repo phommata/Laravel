@@ -46,7 +46,7 @@ class ArticlesController extends Controller
      *
      * @return Response
      */
-    public function store(ArticleRequest $request){
+    public function store(){
 
         $this->validate($request, ['title' => 'required']); // make sure field is present.
                                                             // validate field against some set of data
