@@ -15,10 +15,11 @@ class RedirectIfNotAManager
      */
     public function handle($request, Closure $next)
     {
-        $response = $next($request);
+        if ( ! $request->user()->isATeamManager())
+        {
+            return redirect('articles');
+        }
 
-        // $request->user
-
-        return $response;
+        return $next($request);
     }
 }

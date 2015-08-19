@@ -31,3 +31,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('foo', ['middleware' => 'manager', function(){
+
+    return 'this page may only be viewed by managers';
+}]);
