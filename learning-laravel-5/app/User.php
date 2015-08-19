@@ -47,4 +47,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return true;
     }
+
+    public function setPasswordAttribute($password){
+
+        $this->attributes['password'] = mcrypt($password);
+        // $user->password = 'foobar';
+    }
 }
