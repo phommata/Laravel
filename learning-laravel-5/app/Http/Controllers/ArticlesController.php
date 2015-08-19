@@ -46,10 +46,7 @@ class ArticlesController extends Controller
      *
      * @return Response
      */
-    public function store(){
-
-        $this->validate($request, ['title' => 'required']); // make sure field is present.
-                                                            // validate field against some set of data
+    public function store(ArticleRequest $request){
 
         // Let Laravel do the work for us, reference relationship save new user articles
         $article = new Article($request->all());
