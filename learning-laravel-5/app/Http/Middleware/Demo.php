@@ -15,8 +15,8 @@ class Demo
      */
     public function handle($request, Closure $next)
     {
-        if ($request->input('foo')){ // stuck in loop if all routes
-                                     // /articles/create
+        if ($request->is('articles/create') && $request->input('foo')){ // stuck in loop if all routes
+                                                                        // /articles/create
             return redirect('articles');
         }
 
