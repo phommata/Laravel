@@ -1,2 +1,2 @@
 # Laravel
-Blog website
+Blog Web App
