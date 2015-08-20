@@ -24,6 +24,6 @@ class Tag extends Model
         // fourth argument for a non-standard name for the
         // article id like article_identifier. Same is true for
         // the tag id.
-        return $this->belongsToMany('App\Article', "tags_pivot", "article_identifier");
+        return $this->belongsToMany('App\Article');
     }
 }

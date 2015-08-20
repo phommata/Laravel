@@ -57,6 +57,9 @@ $article->toArray();
      "excerpt" => null,
    ]
    
+If we want to insert a model on a mini-to-mini relationship, we can use the attach method.
+Attach is very much like the pivot table, where you have your hooks there.
+   
 $article->tags()->attach(1);
 	Illuminate\Database\QueryException with message 
 	'SQLSTATE[23000]: Integrity constraint violation: 
@@ -69,4 +72,128 @@ $article->tags()->attach(1);
 exit
 
 php artisan tinker	
-         
+
+$article = App\Article::first();
+=> App\Article {#715
+     id: "1",
+     user_id: "1",
+     title: "Article by Andrew",
+     body: "and the body",
+     created_at: "2015-08-14 23:59:30",
+     updated_at: "2015-08-14 23:59:30",
+     published_at: "2015-08-14 00:00:00",
+     excerpt: null,
+   }
+
+$article->tags()->attach(1);
+=> null
+
+Didn't get anything, but pretty sure it worked.
+
+Let's see by using the general DB class in this case.
+
+DB::select('select * from article_tag');
+=> [
+     {#713
+       +"article_id": "1",
+       +"tag_id": "1",
+       +"created_at": "2015-08-20 23:17:41",
+       +"updated_at": "2015-08-20 23:17:41",
+     },
+   ]
+   
+There we go, one row is in our pivot table.
+
+We still have our Article object
+
+$article->toArray();
+=> [
+     "id" => "1",
+     "user_id" => "1",
+     "title" => "Article by Andrew",
+     "body" => "and the body",
+     "created_at" => "2015-08-14 23:59:30",
+     "updated_at" => "2015-08-14 23:59:30",
+     "published_at" => "2015-08-14 00:00:00",
+     "excerpt" => null,
+   ]
+   
+$article->tags->toArray();
+=> [
+     [
+       "id" => "1",
+       "name" => "personal",
+       "created_at" => "2015-08-20 22:55:42",
+       "updated_at" => "2015-08-20 22:55:42",
+       "pivot" => [
+         "article_id" => "1",
+         "tag_id" => "1",
+         "created_at" => "2015-08-20 23:17:41",
+         "updated_at" => "2015-08-20 23:17:41",
+       ],
+     ],
+   ]
+   
+If we run $article->toArray(); again. Laravel is smart enough to store this, so it not
+running a SQL query every single time.   
+
+$article->toArray();
+
+=> [
+     "id" => "1",
+     "user_id" => "1",
+     "title" => "Article by Andrew",
+     "body" => "and the body",
+     "created_at" => "2015-08-14 23:59:30",
+     "updated_at" => "2015-08-14 23:59:30",
+     "published_at" => "2015-08-14 00:00:00",
+     "excerpt" => null,
+     "tags" => [
+       [
+         "id" => "1",
+         "name" => "personal",
+         "created_at" => "2015-08-20 22:55:42",
+         "updated_at" => "2015-08-20 22:55:42",
+         "pivot" => [
+           "article_id" => "1",
+           "tag_id" => "1",
+           "created_at" => "2015-08-20 23:17:41",
+           "updated_at" => "2015-08-20 23:17:41",
+         ],
+       ],
+     ],
+   ]
+   
+$article->tags->lists('name');
+=> Illuminate\Database\Eloquent\Collection {#714
+     all: [
+       "personal",
+     ],
+   }
+   
+Will give all tags for a given article.
+
+Let's do it in reverse.
+
+$tag = App\Tag::first();
+=> App\Tag {#724
+     id: "1",
+     name: "personal",
+     created_at: "2015-08-20 22:55:42",
+     updated_at: "2015-08-20 22:55:42",
+   }      
+
+$tag->toArray();
+=> [
+     "id" => "1",
+     "name" => "personal",
+     "created_at" => "2015-08-20 22:55:42",
+     "updated_at" => "2015-08-20 22:55:42",
+   ]
+   
+So we have that same tag.
+   
+Now, we want to get all articles that have been assigned to this tag.
+$tag->articles->toArray();
+
+Just an array with a single article.
