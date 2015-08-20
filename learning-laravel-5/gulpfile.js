@@ -17,5 +17,5 @@ elixir(function(mix) {
     mix.styles([
         'vendor/normalize.css',
         'app.css'
-    ], null, 'public/css');
+    ], 'public/output/final.css', 'public/css');
 });
