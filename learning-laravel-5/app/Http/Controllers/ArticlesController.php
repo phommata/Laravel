@@ -63,10 +63,10 @@ class ArticlesController extends Controller
         // Auth::user()->articles; // Collection
         \Auth::user()->articles()->create($request->all());
 
-        flash('You are now logged in');
+//        flash('You are now logged in');
 //        flash()->overlay('Your article has been successfully created!', 'Good job');
 
-        return redirect('articles');
+        return redirect('articles')->with('flash_message', 'You are now logged in.');
 
     }
 
