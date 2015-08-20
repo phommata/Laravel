@@ -1,0 +1,40 @@
+php artisan migrate
+sqlite3
+if none on Mac homebrew install sqlite
+sqlite3 storage/database.sqlite
+.tables
+.schema
+
+new terminal tab
+
+homestead ssh
+cd ~/Code/learning-laravel-5
+
+php artisan migrate 3 common commmands
+php artisan migrate:rollback
+	name -> usernames
+php artisan migrate
+
+sqlite3 storage/database.sqlite
+.schema
+
+php artisan help make:migration
+php artisan make:migration create_articles_table --create="articles"
+
+Modify articles table
+php artisan migrate
+
+No boiler plate 
+php artisan make:migration add_excerpt_to_articles_table
+
+A little more boiler plate
+php artisan make:migration add_excerpt_to_articles_table --table="articles"
+
+Modify AddExcerptToArticlesTable table
+php artisan migrate
+
+sqlite3 storage/database.sqlite
+.schema
+
+Will possibly crap out
+php artisan migrate:rollback

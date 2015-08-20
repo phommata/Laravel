@@ -1,0 +1,68 @@
+homestead ssh
+php artisan
+
+php artisan make:model Article
+
+PHPStorm - Navigate | File Structure
+Cmd + F12
+
+php artisan tinker
+$name = 'andrew';
+$name;
+$article = new App\Article;
+$article;
+$article->title = 'My First Article';
+$article->body = 'Lorem ipsum';
+$article->published_at = Carbon\Carbon::now();
+$article;
+$article->toArray();
+$article->save();
+
+To see the new article
+
+sqlite3 storage/database.sqlite
+select * from articles;
+
+php artisan tinker
+App\Article::all()->toArray();
+$article->toArray();
+$article->title = "My Updated First Article";
+$article->save();
+App\Article::all()->toArray();
+
+select * from table where id = 1;
+
+$article = App\Article::find(1);
+$article->toArray();
+$article->title;
+$article->body;
+
+select * from table where body = "Lorem ipsum";
+
+$article = App\Article::where('body', 'Lorem ipsum')->get(); // Collection
+$article = App\Article::where('body', 'Lorem ipsum')->first(); 
+$article->body;
+$article = new App\Article;
+$article = App\Article::create(['title' => 'New Article', 'body' => 'New body', 
+	'published_at' => Carbon\Carbon::now()]);
+MassAssignmentException
+
+Fix
+Article.php protected $fillable = [...];
+$article = App\Article::create(['title' => 'New Article', 'body' => 'New body', 
+	'published_at' => Carbon\Carbon::now()];
+App\Article::all()->toArray();
+
+Find article id 2, update body, and persist
+2 ways to do it
+php artisan tinker
+$article = App\Article::find(2);
+$article->toArray();
+$article->body = 'Updated';
+$article->save();
+$article->toArray();
+
+Another way to do it
+$article->update(['body' => 'Updated AGAIN']);
+App\Article::all()->toArray();
+

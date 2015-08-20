@@ -1,0 +1,38 @@
+node -v
+npm install
+sudo npm install
+
+npm install --global gulp
+sudo npm install --global gulp
+
+gulp
+[18:33:44] Using gulpfile ~/Documents/GitHub/Laravel/learning-laravel-5/gulpfile.js
+[18:33:44] Starting 'default'...
+[18:33:44] Starting 'sass'...
+
+Fetching Sass Source Files...
+   - resources/assets/sass/app.scss
+
+
+Saving To...
+   - public/css/app.css
+
+[18:33:46] Finished 'default' after 1.73 s
+[18:33:46] gulp-notify: [Laravel Elixir] Sass Compiled!
+[18:33:46] Finished 'sass' after 2.22 s
+
+gulp watch
+
+gulp
+
+gulp
+	sass
+	coffee
+	merging some stylesheets
+	
+Compress/minify everything
+	gulp --production
+
+gulp
+
+gulp tdd

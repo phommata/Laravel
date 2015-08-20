@@ -1,0 +1,183 @@
+homestead ssh
+php artisan
+
+// Will delete data
+php artisan migrate:refresh
+
+Rolled back: 2015_08_08_160035_add_excerpt_to_articles_table
+Rolled back: 2015_08_08_155050_create_articles_table
+Rolled back: 2014_10_12_100000_create_password_resets_table
+Rolled back: 2014_10_12_000000_create_users_table
+Migrated: 2014_10_12_000000_create_users_table
+Migrated: 2014_10_12_100000_create_password_resets_table
+Migrated: 2015_08_08_155050_create_articles_table
+Migrated: 2015_08_08_160035_add_excerpt_to_articles_table
+
+php artisan tinker
+$user = new App\User;
+$user->username = 'John Doe';
+$user->email = 'john@example.com';
+$user->password = Hash::make('password');
+OR
+$user->password = bcrypt('password');
+$user->save();
+
+App\User::first()->toArray();
+
+php artisan tinker
+App\Article::first()->toArray();
+=> [
+     "id" => "1",
+     "user_id" => "1",
+     "title" => "New Article",
+     "body" => "the body",
+     "created_at" => "2015-08-14 01:56:37",
+     "updated_at" => "2015-08-14 01:56:37",
+     "published_at" => "2015-08-14 00:00:00",
+     "excerpt" => null,
+   ]
+   
+$user = App\User::first();
+=> App\User {#693
+     id: "1",
+     username: "John Doe",
+     email: "john@example.com",
+     created_at: "2015-08-14 01:49:27",
+     updated_at: "2015-08-14 01:49:27",
+   }
+
+$user->articles->toArray();
+=> [
+     [
+       "id" => "1",
+       "user_id" => "1",
+       "title" => "New Article",
+       "body" => "the body",
+       "created_at" => "2015-08-14 01:56:37",
+       "updated_at" => "2015-08-14 01:56:37",
+       "published_at" => "2015-08-14 00:00:00",
+       "excerpt" => null,
+     ],
+   ]
+   
+$user->articles();
+=> Illuminate\Database\Eloquent\Relations\HasMany {#678}
+
+$user->articles()->get()->toArray();
+=> [
+     [
+       "id" => "1",
+       "user_id" => "1",
+       "title" => "New Article",
+       "body" => "the body",
+       "created_at" => "2015-08-14 01:56:37",
+       "updated_at" => "2015-08-14 01:56:37",
+       "published_at" => "2015-08-14 00:00:00",
+       "excerpt" => null,
+     ],
+   ]
+   
+$user->articles()->where('title', 'New Article')->get();      
+=> Illuminate\Database\Eloquent\Collection {#699
+     all: [
+       App\Article {#695
+         id: "1",
+         user_id: "1",
+         title: "New Article",
+         body: "the body",
+         created_at: "2015-08-14 01:56:37",
+         updated_at: "2015-08-14 01:56:37",
+         published_at: "2015-08-14 00:00:00",
+         excerpt: null,
+       },
+     ],
+   }
+   
+$user->articles()->where('title', 'New Article')->get()->toArray();
+=> [
+     [
+       "id" => "1",
+       "user_id" => "1",
+       "title" => "New Article",
+       "body" => "the body",
+       "created_at" => "2015-08-14 01:56:37",
+       "updated_at" => "2015-08-14 01:56:37",
+       "published_at" => "2015-08-14 00:00:00",
+       "excerpt" => null,
+     ],
+   ]
+   
+php artisan tinker   
+$article = App\Article::first();
+=> App\Article {#706
+     id: "1",
+     user_id: "1",
+     title: "New Article",
+     body: "the body",
+     created_at: "2015-08-14 01:56:37",
+     updated_at: "2015-08-14 01:56:37",
+     published_at: "2015-08-14 00:00:00",
+     excerpt: null,
+   }
+   
+Works in both ways   
+
+$article->user->toArray();
+=> [
+     "id" => "1",
+     "username" => "John Doe",
+     "email" => "john@example.com",
+     "created_at" => "2015-08-14 01:49:27",
+     "updated_at" => "2015-08-14 01:49:27",
+   ]
+   
+$user = App\User::where('username', 'John Doe')->first();
+=> App\User {#702
+     id: "1",
+     username: "John Doe",
+     email: "john@example.com",
+     created_at: "2015-08-14 01:49:27",
+     updated_at: "2015-08-14 01:49:27",
+   }
+
+$user->toArray();      
+=> [
+     "id" => "1",
+     "username" => "John Doe",
+     "email" => "john@example.com",
+     "created_at" => "2015-08-14 01:49:27",
+     "updated_at" => "2015-08-14 01:49:27",
+   ]
+   
+$articles = $user->articles;
+=> Illuminate\Database\Eloquent\Collection {#696
+     all: [
+       App\Article {#697
+         id: "1",
+         user_id: "1",
+         title: "New Article",
+         body: "the body",
+         created_at: "2015-08-14 01:56:37",
+         updated_at: "2015-08-14 01:56:37",
+         published_at: "2015-08-14 00:00:00",
+         excerpt: null,
+       },
+     ],
+   }
+   
+$articles->toArray();
+=> [
+     [
+       "id" => "1",
+       "user_id" => "1",
+       "title" => "New Article",
+       "body" => "the body",
+       "created_at" => "2015-08-14 01:56:37",
+       "updated_at" => "2015-08-14 01:56:37",
+       "published_at" => "2015-08-14 00:00:00",
+       "excerpt" => null,
+     ],
+   ]
+   
+Within your controller, you have your Collection so just pass that a view
+return  view('articles.index', compact('articles));

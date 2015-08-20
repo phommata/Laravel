@@ -1,0 +1,51 @@
+php -S localhost:8888 -t public
+/Applications/MAMP/htdocs/learning-laravel-5/
+
+vagrant
+vagrant box add laravel/homestead
+1
+composer global require "laravel/homestead=~2.0"
+homestead
+
+Make sure to place the ~/.composer/vendor/bin directory in your PATH so the homestead 
+	executable is found when you run the homestead command in your terminal.
+	
+homestead init
+homestead edit	
+
+vi /private/etc/hosts 
+192.168.10.10  laravel5.dev
+
+-----------------------------------------------------
+Update proj directory: /Applications/MAMP/htdocs/learning-laravel-5
+
+
+Ex: 
+Update mapping from
+
+folders:
+    - map: ~/Code
+      to: /home/vagrant/Code
+
+sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/Laravel/public
+      
+Update mapping to 
+
+folders:    
+    - map: /Applications/MAMP/htdocs/
+      to: /home/vagrant/Code
+
+sites:
+    - map: laravel5.dev
+      to: /home/vagrant/Code/learning-laravel-5/public
+-----------------------------------------------------      
+homestead up
+homestead ssh
+ls
+cd Code
+cd casts
+php -v
+
+http://laravel5.dev

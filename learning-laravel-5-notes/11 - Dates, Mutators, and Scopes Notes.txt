@@ -1,0 +1,5 @@
+sqlite3 storage/database.sqlite
+select * from articles;
+
+PHPStorm Show Inherited Members: fn + Cmd + F12
+

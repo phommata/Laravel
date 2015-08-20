@@ -1,0 +1,15 @@
+mkdir tmp
+cd tmp
+composer require phpspec/phpspec
+ls
+cat composer.json
+ls vendor
+ls vendor/bin
+vendor/bin/phpspec
+
+composer create-project laravel/laravel learning-laravel-5 dev-develop
+Y
+cd learning-laravel-5/
+ls
+php -S localhost:8888 -t public
+PHP Server serve

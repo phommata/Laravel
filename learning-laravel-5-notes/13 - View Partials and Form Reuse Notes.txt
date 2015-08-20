@@ -1,0 +1,31 @@
+homestead ssh
+vagrant@homestead:~/Code/learning-laravel-5$ php artisan route:list
++--------+----------+--------------------+------+------------------------------------------------+------------+
+| Domain | Method   | URI                | Name | Action                                         | Middleware |
++--------+----------+--------------------+------+------------------------------------------------+------------+
+|        | GET|HEAD | /                  |      | App\Http\Controllers\WelcomeController@index   | guest      |
+|        | GET|HEAD | about              |      | App\Http\Controllers\PagesController@about     |            |
+|        | POST     | articles           |      | App\Http\Controllers\ArticlesController@store  |            |
+|        | GET|HEAD | articles           |      | App\Http\Controllers\ArticlesController@index  |            |
+|        | GET|HEAD | articles/create    |      | App\Http\Controllers\ArticlesController@create |            |
+|        | GET|HEAD | articles/{id}      |      | App\Http\Controllers\ArticlesController@show   |            |
+|        | GET|HEAD | articles/{id}/edit |      | App\Http\Controllers\ArticlesController@edit   |            |
+|        | GET|HEAD | contact            |      | App\Http\Controllers\PagesController@contact   |            |
++--------+----------+--------------------+------+------------------------------------------------+------------+
+
+vagrant@homestead:~/Code/learning-laravel-5$ php artisan route:list
++--------+----------+--------------------------+------------------+-------------------------------------------------+------------+
+| Domain | Method   | URI                      | Name             | Action                                          | Middleware |
++--------+----------+--------------------------+------------------+-------------------------------------------------+------------+
+|        | GET|HEAD | /                        |                  | App\Http\Controllers\WelcomeController@index    | guest      |
+|        | GET|HEAD | about                    |                  | App\Http\Controllers\PagesController@about      |            |
+|        | GET|HEAD | articles                 | articles.index   | App\Http\Controllers\ArticlesController@index   |            |
+|        | POST     | articles                 | articles.store   | App\Http\Controllers\ArticlesController@store   |            |
+|        | GET|HEAD | articles/create          | articles.create  | App\Http\Controllers\ArticlesController@create  |            |
+|        | PUT      | articles/{articles}      | articles.update  | App\Http\Controllers\ArticlesController@update  |            |
+|        | GET|HEAD | articles/{articles}      | articles.show    | App\Http\Controllers\ArticlesController@show    |            |
+|        | DELETE   | articles/{articles}      | articles.destroy | App\Http\Controllers\ArticlesController@destroy |            |
+|        | PATCH    | articles/{articles}      |                  | App\Http\Controllers\ArticlesController@update  |            |
+|        | GET|HEAD | articles/{articles}/edit | articles.edit    | App\Http\Controllers\ArticlesController@edit    |            |
+|        | GET|HEAD | contact                  |                  | App\Http\Controllers\PagesController@contact    |            |
++--------+----------+--------------------------+------------------+-------------------------------------------------+------------+

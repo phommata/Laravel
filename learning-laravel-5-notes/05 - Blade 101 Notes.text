@@ -1,0 +1,12 @@
+        return view('pages.about')->with([
+            'first' => 'Andrew',
+            'last' => 'Phommathep'
+        ]);
+        
+    <h1>About Me {{ $first }} {{ $last }}</h1> <!-- Unescaped data-->
+
+@unless if !
+
+forelse if none
+
+Ctrl + F12: Navigate File Structure

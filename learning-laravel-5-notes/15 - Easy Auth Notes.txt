@@ -1,0 +1,142 @@
+php artisan route:list
++--------+--------------------------------+-------------------------------------------------------+------------------+------------------------------------------------------------+------------+
+| Domain | Method                         | URI                                                   | Name             | Action                                                     | Middleware |
++--------+--------------------------------+-------------------------------------------------------+------------------+------------------------------------------------------------+------------+
+|        | GET|HEAD                       | /                                                     |                  | App\Http\Controllers\WelcomeController@index               | guest      |
+|        | GET|HEAD                       | about                                                 |                  | App\Http\Controllers\PagesController@about                 |            |
+|        | POST                           | articles                                              | articles.store   | App\Http\Controllers\ArticlesController@store              |            |
+|        | GET|HEAD                       | articles                                              | articles.index   | App\Http\Controllers\ArticlesController@index              |            |
+|        | GET|HEAD                       | articles/create                                       | articles.create  | App\Http\Controllers\ArticlesController@create             |            |
+|        | PATCH                          | articles/{articles}                                   |                  | App\Http\Controllers\ArticlesController@update             |            |
+|        | PUT                            | articles/{articles}                                   | articles.update  | App\Http\Controllers\ArticlesController@update             |            |
+|        | DELETE                         | articles/{articles}                                   | articles.destroy | App\Http\Controllers\ArticlesController@destroy            |            |
+|        | GET|HEAD                       | articles/{articles}                                   | articles.show    | App\Http\Controllers\ArticlesController@show               |            |
+|        | GET|HEAD                       | articles/{articles}/edit                              | articles.edit    | App\Http\Controllers\ArticlesController@edit               |            |
+|        | POST                           | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |                  | App\Http\Controllers\Auth\AuthController@postLogin         | guest      |
+|        | GET|HEAD                       | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}     |                  | App\Http\Controllers\Auth\AuthController@getLogin          | guest      |
+|        | GET|HEAD                       | auth/logout/{one?}/{two?}/{three?}/{four?}/{five?}    |                  | App\Http\Controllers\Auth\AuthController@getLogout         |            |
+|        | POST                           | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}  |                  | App\Http\Controllers\Auth\AuthController@postRegister      | guest      |
+|        | GET|HEAD                       | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}  |                  | App\Http\Controllers\Auth\AuthController@getRegister       | guest      |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | auth/{_missing}                                       |                  | App\Http\Controllers\Auth\AuthController@missingMethod     | guest      |
+|        | GET|HEAD                       | contact                                               |                  | App\Http\Controllers\PagesController@contact               |            |
+|        | POST                           | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@postEmail     | guest      |
+|        | GET|HEAD                       | password/email/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@getEmail      | guest      |
+|        | POST                           | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@postReset     | guest      |
+|        | GET|HEAD                       | password/reset/{one?}/{two?}/{three?}/{four?}/{five?} |                  | App\Http\Controllers\Auth\PasswordController@getReset      | guest      |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | password/{_missing}                                   |                  | App\Http\Controllers\Auth\PasswordController@missingMethod | guest      |
++--------+--------------------------------+-------------------------------------------------------+------------------+------------------------------------------------------------+------------+
+
+php artisan route:list
+|        | GET|HEAD                       | auth/foo/{one?}/{two?}/{three?}/{four?}/{five?}       |                  | App\Http\Controllers\Auth\AuthController@getFoo            | guest      |
+
+php artisan tinker
+App\User::first()->toArray();
+
+=> [
+     "id" => "1",
+     "name" => "andrew phommathep",
+     "email" => "andrew.phommathep@gmail.com",
+     "created_at" => "2015-08-14 23:17:33",
+     "updated_at" => "2015-08-14 23:17:33",
+   ]
+
+Cmd + Shift + F: helpers.php
+Illuminate/Foundation
+	Additional PHP functions 
+	
+Ctrl + T: Refactor This, 5. Extract Variable	
+
+php artisan tinker
+App\Article::first()->toArray();
+=> [
+     "id" => "1",
+     "user_id" => "1",
+     "title" => "Article by Andrew",
+     "body" => "and the body",
+     "created_at" => "2015-08-14 23:59:30",
+     "updated_at" => "2015-08-14 23:59:30",
+     "published_at" => "2015-08-14 00:00:00",
+     "excerpt" => null,
+   ]
+   
+$andrew = App\User::where('name', 'andrew phommathep')->first();
+=> App\User {#724
+     id: "1",
+     name: "andrew phommathep",
+     email: "andrew.phommathep@gmail.com",
+     created_at: "2015-08-14 23:17:33",
+     updated_at: "2015-08-14 23:21:30",
+   }
+   
+$andrew->toArray();      
+=> [
+     "id" => "1",
+     "name" => "andrew phommathep",
+     "email" => "andrew.phommathep@gmail.com",
+     "created_at" => "2015-08-14 23:17:33",
+     "updated_at" => "2015-08-14 23:21:30",
+   ]
+
+$andrew->articles->toArray();      
+=> [
+     [
+       "id" => "1",
+       "user_id" => "1",
+       "title" => "Article by Andrew",
+       "body" => "and the body",
+       "created_at" => "2015-08-14 23:59:30",
+       "updated_at" => "2015-08-14 23:59:30",
+       "published_at" => "2015-08-14 00:00:00",
+       "excerpt" => null,
+     ],
+   ]
+
+$article = new App\Article(['title' => 'new', 'body' => 'new', 'published_at' => Carbon\Carbon::now()]);
+=> App\Article {#717
+     title: "new",
+     body: "new",
+     published_at: Carbon\Carbon {#726
+       +"date": "2015-08-15 00:19:01.000000",
+       +"timezone_type": 3,
+       +"timezone": "UTC",
+     },
+   }
+   
+$article->toArray();   
+=> [
+     "title" => "new",
+     "body" => "new",
+     "published_at" => "2015-08-15 00:19:01",
+   ]
+
+No user_id on this article yet   
+   
+$andrew->articles()->save($article);
+=> App\Article {#717
+     title: "new",
+     body: "new",
+     published_at: Carbon\Carbon {#726
+       +"date": "2015-08-15 00:19:01.000000",
+       +"timezone_type": 3,
+       +"timezone": "UTC",
+     },
+     user_id: "1",
+     updated_at: "2015-08-15 00:20:08",
+     created_at: "2015-08-15 00:20:08",
+     id: 2,
+   }
+   
+user_id applied and article persisted
+
+$article->toArray();
+=> [
+     "title" => "new",
+     "body" => "new",
+     "published_at" => "2015-08-15 00:19:01",
+     "user_id" => "1",
+     "updated_at" => "2015-08-15 00:20:08",
+     "created_at" => "2015-08-15 00:20:08",
+     "id" => 2,
+   ]
+   
+Article has user_id and timestamps         

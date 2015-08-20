@@ -1,0 +1,18 @@
+php artisan down
+Application is now in maintenance mode.
+
+Typically done on production.
+
+php artisan up
+Application is now live.
+
+Shift + Cmd + O: Navigating to File by name
+CheckForMaintenanceMode.php
+
+php artisan
+
+php artisan make:middleware Demo
+
+Shift + Cmd + O: Request.php Illuminate\Http
+
+php artisan make:middleware RedirectIfNotAManager

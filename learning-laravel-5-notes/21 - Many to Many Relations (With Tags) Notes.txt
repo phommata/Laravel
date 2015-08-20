@@ -1,0 +1,72 @@
+Create Eloquent model
+
+php artisan make:model Tag
+Model created successfully.
+
+Create a migration for the Tag and Pivot table
+
+php artisan make:migration create_tags_table --create=tags
+Created Migration: 2015_08_20_212546_create_tags_table
+
+php artisan migrate
+Migrated: 2015_08_20_212546_create_tags_table
+
+php artisan tinker
+$tag = new App\Tag;
+$tag->name = 'personal';
+$tag->save();
+
+App\Tag::all()->toArray();
+=> [
+     [
+       "id" => "1",
+       "name" => "personal",
+       "created_at" => "2015-08-20 22:55:42",
+       "updated_at" => "2015-08-20 22:55:42",
+     ],
+   ]
+   
+App\Tag::lists('name');
+=> Illuminate\Support\Collection {#719
+     all: [
+       "personal",
+     ],
+   }
+   
+$article = App\Article::first();
+=> App\Article {#724
+     id: "1",
+     user_id: "1",
+     title: "Article by Andrew",
+     body: "and the body",
+     created_at: "2015-08-14 23:59:30",
+     updated_at: "2015-08-14 23:59:30",
+     published_at: "2015-08-14 00:00:00",
+     excerpt: null,
+   }
+   
+$article->toArray();
+=> [
+     "id" => "1",
+     "user_id" => "1",
+     "title" => "Article by Andrew",
+     "body" => "and the body",
+     "created_at" => "2015-08-14 23:59:30",
+     "updated_at" => "2015-08-14 23:59:30",
+     "published_at" => "2015-08-14 00:00:00",
+     "excerpt" => null,
+   ]
+   
+$article->tags()->attach(1);
+	Illuminate\Database\QueryException with message 
+	'SQLSTATE[23000]: Integrity constraint violation: 
+	19 NOT NULL constraint failed: article_tag.created_at 
+	(SQL: insert into "article_tag" ("article_id", "tag_id") values (1, 1))'
+	
+	Because we have timestamps on the table, we have to tell Laravel there are timestamps.
+	They are not there by default, you have to opt-in Article.php tags
+	
+exit
+
+php artisan tinker	
+         

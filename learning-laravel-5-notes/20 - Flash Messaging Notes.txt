@@ -1,0 +1,13 @@
+Shift + Cmd + O: helpers.php
+Illuminate/Foundation
+
+Cmd + F12: session()
+
+composer require laracasts/flash
+
+Shift + Cmd + O: FlashNotifier.php
+
+Shift + Cmd + O: flash/message.blade.php
+
+Shift + Cmd + O: modal.blade.php
+	Contains div id flash-overlay-modal
