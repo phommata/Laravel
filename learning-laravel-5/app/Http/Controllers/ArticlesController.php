@@ -63,6 +63,7 @@ class ArticlesController extends Controller
         // Auth::user()->articles; // Collection
         \Auth::user()->articles()->create($request->all());
 
+        session()->flash('flash_message', 'You signed up!');
         flash()->overlay('Your article has been successfully created!', 'Good job');
 
         return redirect('articles');
