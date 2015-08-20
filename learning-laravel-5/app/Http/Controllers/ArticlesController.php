@@ -65,16 +65,25 @@ class ArticlesController extends Controller
 
     }
 
-    public function edit($id){
-
-        $article = Article::findOrFail($id);
+    /**
+     * Edit an existing article.
+     *
+     * @param Article $article
+     * @return Response \Illuminate\View\View
+     */
+    public function edit(Article $article){
 
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id, ArticleRequest $request){
-
-        $article = Article::findOrFail($id);
+    /**
+     * Update an article.
+     *
+     * @param Article $article
+     * @param ArticleRequest $request
+     * @return Response \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Article $article, ArticleRequest $request){
 
         $article->update($request->all());
 
