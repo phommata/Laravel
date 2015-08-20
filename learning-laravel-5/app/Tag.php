@@ -9,6 +9,11 @@ class Tag extends Model
     // Want the inverse, so if you have a tag object, $tag->article.
     // Give me all articles associated with the given tag
 
+    /**
+     * Get the articles associated with the given tag.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function articles()
     {
         // if you don't want to follow conventions, you maybe are
