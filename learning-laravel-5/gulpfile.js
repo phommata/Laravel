@@ -18,4 +18,10 @@ elixir(function(mix) {
         'vendor/normalize.css',
         'app.css'
     ], 'public/output/final.css', 'public/css');
+
+    mix.scripts([
+        'vendor/jquery.js',
+        'main.js',
+        'coupon.js'
+    ], 'public/output/scripts.js', 'public/js');
 });
