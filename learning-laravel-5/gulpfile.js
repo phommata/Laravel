@@ -12,5 +12,10 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss').coffee(['module.coffee']).scripts();
+    mix.sass('app.scss').coffee(['module.coffee']);
+
+    mix.styles([
+        'vendor/normalize.css',
+        'app.css'
+    ], null, 'public/css');
 });
