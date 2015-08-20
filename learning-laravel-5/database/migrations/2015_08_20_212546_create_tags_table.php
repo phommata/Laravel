@@ -17,6 +17,19 @@ class CreateTagsTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        Schema::create('article_tag', function(Blueprint $table){
+            // Singular version of the two tables article, tags that you are tring to connect
+            // Want to connect them article_tag and make them alphabetical order
+
+            $table->integer('article_id')->unsigned()->index(); // Will always be positive numbers - unsigned
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+
+            $table->integer('tag_id')->unsigned()->index();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+
+            $table->timestamps();
+        });
     }
 
     /**
