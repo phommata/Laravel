@@ -22,7 +22,9 @@
 
     <script>
 
-        $('div.alert').not('.alert-important').delay(300).slideUp(300);
+        $('#flash-overlay-modal').modal();
+
+//        $('div.alert').not('.alert-important').delay(300).slideUp(300);
 
     </script>
     @yield('footer')
