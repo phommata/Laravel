@@ -19,8 +19,7 @@
 
                 @endif
 
-                {{ session() }}
-                {{ Session::get('flash_message') }}
+                {{ session('flash_message') }}
 
             </div>
 
