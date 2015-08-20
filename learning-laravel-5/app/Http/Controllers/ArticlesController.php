@@ -18,6 +18,11 @@ class ArticlesController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
+    /**
+     * Show all articles
+     *
+     * @return Response \Illuminate\View\View
+     */
     public function index(){
 
 //        $articles = Article::order_by('published_at', 'desc')->get();
@@ -55,11 +60,8 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
-        // Let Laravel do the work for us, reference relationship save new user articles
-        $article = new Article($request->all());
-
         // Auth::user()->articles; // Collection
-        \Auth::user()->articles()->save($article);
+        \Auth::user()->articles()->create($request->all());
 
         return redirect('articles');
 
