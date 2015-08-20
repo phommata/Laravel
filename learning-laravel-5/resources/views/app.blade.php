@@ -11,7 +11,13 @@
 
         @if (Session::has('flash_message'))
 
-            <div class="alert alert-success">{{ Session::get('flash_message') }}</div>
+            <div class="alert alert-success">
+
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                {{ Session::get('flash_message') }}
+
+            </div>
 
         @endif
 
@@ -19,7 +25,12 @@
 
     </div>
 
-        @yield('footer')
+    <script src="//code.jquery.com/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    @yield('footer')
 
 </body>
 </html>
