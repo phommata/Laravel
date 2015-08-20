@@ -63,6 +63,10 @@ class ArticlesController extends Controller
         // Auth::user()->articles; // Collection
         \Auth::user()->articles()->create($request->all());
 
+        \Flash::info();
+        \Flash::error();
+        \Flash::success();
+
         flash('Your article has been created!')->important();
 
         return redirect('articles');
