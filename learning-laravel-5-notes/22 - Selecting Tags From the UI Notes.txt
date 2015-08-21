@@ -2,3 +2,16 @@ php artisan tinker
 
 \App\Tag::create(['name' => 'work']);
 Illuminate\Database\Eloquent\MassAssignmentException with message 'name'
+
+exit
+
+php artisan tinker
+
+=> App\Tag {#710
+     name: "work",
+     updated_at: "2015-08-21 16:44:57",
+     created_at: "2015-08-21 16:44:57",
+     id: 2,
+   }
+   
+   
