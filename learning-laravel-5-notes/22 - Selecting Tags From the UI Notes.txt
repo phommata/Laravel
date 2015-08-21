@@ -100,4 +100,10 @@ $article->tags->toArray();
      ],
    ]
       
-http://laravel5.dev/articles/14   
+http://laravel5.dev/articles/14 
+
+http://laravel5.dev/articles/14/edit
+	Undefined variable: tags (View: /home/vagrant/Code/learning-laravel-5/resources/views/articles/form.blade.php) (View: /home/vagrant/Code/learning-laravel-5/resources/views/articles/form.blade.php)
+
+http://laravel5.dev/articles/14/edit
+  

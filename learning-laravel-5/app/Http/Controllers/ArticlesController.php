@@ -90,7 +90,9 @@ class ArticlesController extends Controller
      */
     public function edit(Article $article){
 
-        return view('articles.edit', compact('article'));
+        $tags = Tag::lists('name', 'id');
+
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     /**
