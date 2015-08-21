@@ -51,7 +51,7 @@ class ArticlesController extends Controller
      */
     public function create(){
 
-        $tags = Tag::lists('name', 'name');
+        $tags = Tag::lists('name', 'id');
 
         return view('articles.create', compact('tags'));
     }
@@ -68,7 +68,13 @@ class ArticlesController extends Controller
         // Auth::user()->articles; // Collection
         \Auth::user()->articles()->create($request->all());
 
-//        flash('You are now logged in');
+        $tags = $request->input('tags');
+
+        // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
+        // right now we just have the name of the tag
+//        $articles->tags()->attach([1, 2, 3, 4]);
+
+        flash('You are now logged in');
 //        flash()->overlay('Your article has been successfully created!', 'Good job');
 
         return redirect('articles')->with('flash_message', 'You are now logged in.');
