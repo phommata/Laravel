@@ -21,6 +21,8 @@
 
     {!! Form::label('tags', 'Tags: ') !!}
 
+    <!-- pass name for the select, the various options for the select,
+        what should be treated as a selected value (can pass a string value, or an array -->
     {!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple']) !!}
 
 </div>
