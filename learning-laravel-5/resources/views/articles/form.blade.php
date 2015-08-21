@@ -15,6 +15,15 @@
 
 </div>
 
+<!-- Tags Form Input -->
+
+<div class="form-group">
+
+    {!! Form::label('tags', 'Tags: ') !!}
+
+    {!! Form::select('tags', ['defaults'], null, ['class' => 'form-control']) !!}
+
+</div>
 
 <div class="form-group">
 
