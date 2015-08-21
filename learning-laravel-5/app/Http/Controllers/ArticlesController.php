@@ -66,9 +66,7 @@ class ArticlesController extends Controller
         // Auth::user()->articles; // Collection
         $article = \Auth::user()->articles()->create($request->all());
 
-        $tagIds = $request->input('tags');
-
-        $article->tags()->attach($tagIds);
+        $article->tags()->attach($request->input('tags'));
 
         // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
         // right now we just have the name of the tag
