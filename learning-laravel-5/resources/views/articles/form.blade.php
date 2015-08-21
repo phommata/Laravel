@@ -21,7 +21,7 @@
 
     {!! Form::label('tags', 'Tags: ') !!}
 
-    {!! Form::select('tags', ['defaults'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('tags', ['defaults'], null, ['class' => 'form-control', 'multiple']) !!}
 
 </div>
 
