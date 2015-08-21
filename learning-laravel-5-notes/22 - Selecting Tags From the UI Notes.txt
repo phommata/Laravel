@@ -6,6 +6,7 @@ Illuminate\Database\Eloquent\MassAssignmentException with message 'name'
 exit
 
 php artisan tinker
+\App\Tag::create(['name' => 'work']);
 
 => App\Tag {#710
      name: "work",
@@ -13,5 +14,41 @@ php artisan tinker
      created_at: "2015-08-21 16:44:57",
      id: 2,
    }
+   
+\App\Tag::create(['name' => 'food']);
+=> App\Tag {#716
+     name: "food",
+     updated_at: "2015-08-21 16:46:56",
+     created_at: "2015-08-21 16:46:56",
+     id: 3,
+   }
+   
+\App\Tag::create(['name' => 'coding']);
+=> App\Tag {#720
+     name: "coding",
+     updated_at: "2015-08-21 16:47:20",
+     created_at: "2015-08-21 16:47:20",
+     id: 4,
+   }
+
+\App\Tag::lists('name');
+=> Illuminate\Support\Collection {#718
+     all: [
+       "personal",
+       "work",
+       "food",
+       "coding",
+     ],
+   }
+   
+\App\Tag::lists('name', 'name');
+=> Illuminate\Support\Collection {#721
+     all: [
+       "personal" => "personal",
+       "work" => "work",
+       "food" => "food",
+       "coding" => "coding",
+     ],
+   }   
    
    
