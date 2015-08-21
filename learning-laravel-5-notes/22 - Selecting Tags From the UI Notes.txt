@@ -1,0 +1,4 @@
+php artisan tinker
+
+\App\Tag::create(['name' => 'work']);
+Illuminate\Database\Eloquent\MassAssignmentException with message 'name'
