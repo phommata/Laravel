@@ -6,10 +6,20 @@
 
     <hr>
 
-        <article>
+    <article>
 
-            {{ $article->body }}
+        {{ $article->body }}
 
-        </article>
+    </article>
 
+    <h5>Tags:</h5>
+    <ul>
+
+        @foreach ($article->tags as $tag)
+
+            <li>{{ $tag->name }}</li>
+
+        @endforeach
+        
+    </ul>
 @stop

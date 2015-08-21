@@ -50,5 +50,54 @@ php artisan tinker
        "coding" => "coding",
      ],
    }   
+
+Created article
+http://laravel5.dev/articles/14
    
+exit
+
+php artisan tinker
+
+
+$article = App\Article::find(14);   
+
+=> App\Article {#717
+     id: "14",
+     user_id: "1",
+     title: "Some personal article",
+     body: "Lorem ipsum",
+     created_at: "2015-08-21 20:24:23",
+     updated_at: "2015-08-21 20:24:23",
+     published_at: "2015-08-21 00:00:00",
+     excerpt: null,
+   }
    
+$article->tags->toArray();
+=> [
+     [
+       "id" => "1",
+       "name" => "personal",
+       "created_at" => "2015-08-20 22:55:42",
+       "updated_at" => "2015-08-20 22:55:42",
+       "pivot" => [
+         "article_id" => "14",
+         "tag_id" => "1",
+         "created_at" => "2015-08-21 20:24:23",
+         "updated_at" => "2015-08-21 20:24:23",
+       ],
+     ],
+     [
+       "id" => "4",
+       "name" => "coding",
+       "created_at" => "2015-08-21 16:47:20",
+       "updated_at" => "2015-08-21 16:47:20",
+       "pivot" => [
+         "article_id" => "14",
+         "tag_id" => "4",
+         "created_at" => "2015-08-21 20:24:23",
+         "updated_at" => "2015-08-21 20:24:23",
+       ],
+     ],
+   ]
+      
+http://laravel5.dev/articles/14   
