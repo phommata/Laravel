@@ -23,7 +23,7 @@
 
     <!-- pass name for the select, the various options for the select,
         what should be treated as a selected value (can pass a string value, or an array -->
-    {!! Form::select('tags[]', $tags, [1, 4], ['class' => 'form-control', 'multiple']) !!}
+    {!! Form::select('tag_list[]', $tags, null, ['class' => 'form-control', 'multiple']) !!}
 
 </div>
 
