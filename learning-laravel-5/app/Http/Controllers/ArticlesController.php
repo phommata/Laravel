@@ -69,7 +69,7 @@ class ArticlesController extends Controller
         // Article with that tags pivot table, we want to associate the
         // use specifically that article id with this array of tags
         // When we call attach, you can pass a single integer: id or an array of id's
-        $article->tags()->attach($request->input('tags'));
+        $article->tags()->attach($request->input('tag_list'));
 
         // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
         // right now we just have the name of the tag
