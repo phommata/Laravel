@@ -63,6 +63,8 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
+        dd($request->input('tags'));
+
         // Auth::user()->articles; // Collection
         \Auth::user()->articles()->create($request->all());
 
