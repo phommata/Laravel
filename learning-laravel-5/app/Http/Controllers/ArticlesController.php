@@ -66,6 +66,9 @@ class ArticlesController extends Controller
         // Auth::user()->articles; // Collection
         $article = \Auth::user()->articles()->create($request->all());
 
+        // Article with that tags pivot table, we want to associate the
+        // use specifically that article id with this array of tags
+        // When we call attach, you can pass a single integer: id or an array of id's
         $article->tags()->attach($request->input('tags'));
 
         // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
