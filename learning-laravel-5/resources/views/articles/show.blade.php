@@ -12,14 +12,20 @@
 
     </article>
 
-    <h5>Tags:</h5>
-    <ul>
+    @unless ($article->tags->isEmpty())
 
-        @foreach ($article->tags as $tag)
+        <h5>Tags:</h5>
 
-            <li>{{ $tag->name }}</li>
+        <ul>
 
-        @endforeach
-        
-    </ul>
+            @foreach ($article->tags as $tag)
+
+                <li>{{ $tag->name }}</li>
+
+            @endforeach
+
+        </ul>
+
+    @endunless
+
 @stop
