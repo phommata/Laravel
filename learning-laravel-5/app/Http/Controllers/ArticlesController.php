@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 //use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
+use App\Tag;
 use Carbon\Carbon;
 
 use App\Http\Requests;
@@ -50,9 +51,9 @@ class ArticlesController extends Controller
      */
     public function create(){
 
-        $tags = \App\Tag::lists('name');
+        $tags = Tag::lists('name');
 
-        return view('articles.create');
+        return view('articles.create', compact('tags'));
     }
 
     /**
