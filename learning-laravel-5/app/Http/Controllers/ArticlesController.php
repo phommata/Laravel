@@ -63,12 +63,12 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
-        dd($request->input('tags'));
-
         // Auth::user()->articles; // Collection
-        \Auth::user()->articles()->create($request->all());
+        $article = \Auth::user()->articles()->create($request->all());
 
-        $tags = $request->input('tags');
+        $tagIds = $request->input('tags');
+
+        $article->tags()->attach($tagIds);
 
         // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
         // right now we just have the name of the tag
