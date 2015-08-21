@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    /**
+     * Fillable fields for a tag.
+     * 
+     * @var array
+     */
+    protected $fillable = [
+        'name'
+    ];
+
     // Want the inverse, so if you have a tag object, $tag->article.
     // Give me all articles associated with the given tag
 
