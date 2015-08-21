@@ -51,7 +51,7 @@ class ArticlesController extends Controller
      */
     public function create(){
 
-        $tags = Tag::lists('name');
+        $tags = Tag::lists('name', 'name');
 
         return view('articles.create', compact('tags'));
     }

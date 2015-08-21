@@ -8,7 +8,7 @@ class Tag extends Model
 {
     /**
      * Fillable fields for a tag.
-     * 
+     *
      * @var array
      */
     protected $fillable = [
