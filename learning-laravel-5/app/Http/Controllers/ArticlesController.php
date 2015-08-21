@@ -50,6 +50,8 @@ class ArticlesController extends Controller
      */
     public function create(){
 
+        $tags = \App\Tag::lists('name');
+
         return view('articles.create');
     }
 
