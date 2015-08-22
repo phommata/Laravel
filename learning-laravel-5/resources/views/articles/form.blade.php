@@ -15,17 +15,6 @@
 
 </div>
 
-<!-- Tags Form Input -->
-
-<div class="form-group">
-
-    {!! Form::label('tags', 'Tags: ') !!}
-
-    <!-- pass name for the select, the various options for the select,
-        what should be treated as a selected value (can pass a string value, or an array -->
-    {!! Form::select('tag_list[]', $tags, null, ['class' => 'form-control', 'multiple']) !!}
-
-</div>
 
 <div class="form-group">
 
@@ -38,6 +27,27 @@
 
 <div class="form-group">
 
+    {!! Form::label('tags', 'Tags: ') !!}
+
+    <!-- pass name for the select, the various options for the select,
+        what should be treated as a selected value (can pass a string value, or an array -->
+    {!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' => 'form-control', 'multiple']) !!}
+
+</div>
+
+
+<div class="form-group">
+
     {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control']) !!}
 
 </div>
+
+@section('footer')
+
+    <script>
+
+        $('#tag_list').select2();
+
+    </script>
+
+@endsection
