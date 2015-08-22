@@ -25,7 +25,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ action() }}"></a></li>
+                    <li>{!! link_to_action('ArticlesController@show', $latest->title, [$latest->id]) !!}</li> {{-- articles/{id} --}}
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

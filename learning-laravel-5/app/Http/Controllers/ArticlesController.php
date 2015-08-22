@@ -31,8 +31,9 @@ class ArticlesController extends Controller
 
 //        $articles = Article::order_by('published_at', 'desc')->get();
         $articles = Article::latest('published_at')->published()->get();
+        $latest = Article::latest()->first();
 
-        return view('articles.index', compact('articles'));
+        return view('articles.index', compact('articles', 'latest'));
 //        return view('articles.index')->with('articles', $articles);
     }
 
@@ -44,7 +45,9 @@ class ArticlesController extends Controller
      */
     public function show(Article $article){
 
-        return view('articles.show', compact('article'));
+        $latest = Article::latest()->first();
+
+        return view('articles.show', compact('article', 'latest'));
     }
 
     /**
