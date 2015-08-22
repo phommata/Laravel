@@ -1,0 +1,30 @@
+http://select2.github.io
+
+wget
+
+brew install wget
+
+cd resources
+mkdir css
+cd css
+mkdir libs
+cd libs
+wget http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css
+wget https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css
+ls
+cat select2.min.css
+../
+../
+mkdir js
+cd js
+mkdir libs
+cd libs
+wget http://code.jquery.com/jquery.min.js
+wget http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js
+
+gulp
+
+gulp
+
+gulp --production
+

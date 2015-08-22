@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    {{--<link rel="stylesheet" href="{{ elixir('css/all.css') }}">--}}
+    <link rel="stylesheet" href="/css/all.css">
 </head>
 <body>
     <div class="container">
