@@ -49,10 +49,19 @@
         $('#tag_list').select2({
             placeholder: 'Choose a tag',
             tags: true,
-            data: [
-                { id: 'one', text: 'One'},
-                { id: 'two', text: 'Two'},
-            ]
+            ajax: {
+                dataType: 'json', // return User::all()
+                url: 'api/tags',
+                delay: 250,
+                data: function(params){
+                    return {
+                        q:params.term
+                    }
+                },
+                processResults: function(data){
+                    return { results: data.property }
+                }
+            }
         });
 
     </script>
