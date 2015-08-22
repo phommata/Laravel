@@ -15,11 +15,11 @@ interface BarInterface{}
 class Bar implements BarInterface{}
 class SecondBar implements BarInterface{}
 
-App::bind('BarInterface', 'SecondBar');
+app()->bind('BarInterface', 'SecondBar');
 
 
 Route::get('bar', function(BarInterface $bar){
-    $bar = App::make('Bar');
+    $bar = app()->make('BarInterface');
 
     dd($bar);
 });
