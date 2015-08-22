@@ -25,7 +25,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url() }}"></a></li>
+                    <li><a href="{{ route() }}"></a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
