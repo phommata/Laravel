@@ -11,6 +11,23 @@
 |
 */
 
+class Bar{
+    /**
+     * @var Baz
+     */
+    private $baz;
+
+    public function __construct(Baz $baz){
+
+        $this->baz = $baz;
+    }
+
+}
+
+Route::get('bar', function(Bar $bar){
+    dd($bar);
+});
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('about', 'PagesController@about');
