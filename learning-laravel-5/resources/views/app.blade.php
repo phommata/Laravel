@@ -23,6 +23,10 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/articles">Article</a></li>
                 </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>{!! link_to_action !!}</li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
