@@ -19,7 +19,7 @@ app()->bind('BarInterface', 'Bar');
 
 
 Route::get('bar', function(BarInterface $bar){
-    $bar = app()['BarInterface'];
+    $bar = app('BarInterface');
 
     dd($bar);
 });
