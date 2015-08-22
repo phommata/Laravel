@@ -48,7 +48,11 @@
 
         $('#tag_list').select2({
             placeholder: 'Choose a tag',
-            tags: true
+            tags: true,
+            data: [
+                { id: 'one', text: 'One'},
+                { id: 'two', text: 'Two'},
+            ]
         });
 
     </script>
