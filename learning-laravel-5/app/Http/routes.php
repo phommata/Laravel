@@ -25,11 +25,14 @@ class Bar{
 
 }
 
-App::bind
-app()->bind
+App::bind('Bar', function(){
+
+    return new Bar(new Baz);
+
+});
 
 Route::get('bar', function(Bar $bar){
-    dd($bar->baz);
+    dd($bar);
 });
 
 Route::get('/', 'WelcomeController@index');
