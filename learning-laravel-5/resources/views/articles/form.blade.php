@@ -51,15 +51,9 @@
             tags: true,
             ajax: {
                 dataType: 'json', // return User::all()
-                url: 'api/tags',
-                delay: 250,
-                data: function(params){
-                    return {
-                        q:params.term
-                    }
-                },
+                url: 'tags.json',
                 processResults: function(data){
-                    return { results: data.property }
+                    return { results: data }
                 }
             }
         });
