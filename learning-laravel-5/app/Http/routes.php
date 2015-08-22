@@ -19,6 +19,8 @@ App::bind('BarInterface', 'SecondBar');
 
 
 Route::get('bar', function(BarInterface $bar){
+    $bar = App::make('Bar');
+
     dd($bar);
 });
 
