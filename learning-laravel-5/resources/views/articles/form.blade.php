@@ -46,7 +46,9 @@
 
     <script>
 
-        $('#tag_list').select2();
+        $('#tag_list').select2({
+            placeholder: 'Choose a tag'
+        });
 
     </script>
 
