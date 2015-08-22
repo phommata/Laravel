@@ -46,17 +46,7 @@
 
     <script>
 
-        $('#tag_list').select2({
-            placeholder: 'Choose a tag',
-            tags: true,
-            ajax: {
-                dataType: 'json', // return User::all()
-                url: 'tags.json',
-                processResults: function(data){
-                    return { results: data }
-                }
-            }
-        });
+        $('#tag_list').select2();
 
     </script>
 
