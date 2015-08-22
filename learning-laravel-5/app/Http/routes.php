@@ -10,12 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+class Baz{}
 
 class Bar{
     /**
      * @var Baz
      */
-    private $baz;
+    public $baz;
 
     public function __construct(Baz $baz){
 
