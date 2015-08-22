@@ -11,14 +11,14 @@ use Illuminate\Contracts\View\View;
 
 class NavigationComposer {
 
-    public function __construct(){
+    public function __construct(ArticlesRepository $articles){
 
     }
 
     public function compose(View $view)
     {
 
-        $view->with('latest', Article::with()->join()->where()->first());
+        $view->with('latest', $this->articles->ofSomeType());
 
     }
 }
