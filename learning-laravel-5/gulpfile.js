@@ -28,5 +28,5 @@ elixir(function(mix) {
     mix.scripts([
        'libs/jquery-1.11.3.min.js',
         'libs/select2.min.js'
-    ]), 'public/js/output.js';
+    ]);
 });

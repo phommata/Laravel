@@ -15,11 +15,7 @@
 
     </div>
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="/js/all.js"></script>
     <script>
 
         $('#flash-overlay-modal').modal();
