@@ -10,28 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-class Baz{}
+interface BarInterface{}
 
-class Bar{
-    /**
-     * @var Baz
-     */
-    public $baz;
+class Bar implements BarInterface{}
 
-    public function __construct(Baz $baz){
+App::bind('BarInterface', function(){
 
-        $this->baz = $baz;
-    }
-
-}
-
-App::bind('Bar', function(){
-
-    return new Bar(new Baz);
+    return new Bar;
 
 });
 
-Route::get('bar', function(Bar $bar){
+Route::get('bar', function(BarInterface $bar){
     dd($bar);
 });
 
