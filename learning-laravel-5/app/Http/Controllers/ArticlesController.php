@@ -14,6 +14,9 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    /**
+     * Create a new articles controller instance.
+     */
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
@@ -63,13 +66,7 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request){
 
-        // Auth::user()->articles; // Collection
-        $article = \Auth::user()->articles()->create($request->all());
-
-        // Article with that tags pivot table, we want to associate the
-        // use specifically that article id with this array of tags
-        // When we call attach, you can pass a single integer: id or an array of id's
-        $article->tags()->attach($request->input('tag_list'));
+        $this->createArticles($request);
 
         // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
         // right now we just have the name of the tag
@@ -106,17 +103,33 @@ class ArticlesController extends Controller
 
         $article->update($request->all());
 
-        $this->syncTags($article, $request);
-
         return redirect('articles');
     }
 
     /**
+     * Sync up the list of tags in the database.
+     *
      * @param Article $article
-     * @param ArticleRequest $request
+     * @param array   $tags
      */
-    public function syncTags(Article $article, ArticleRequest $request)
+    public function syncTags(Article $article, array $tags)
     {
-        $article->tags()->sync($request->input('tag_list'));
+        $article->tags()->sync($tags);
+    }
+
+    /**
+     * Save a new article
+     *
+     * @param  ArticleRequest $request
+     * @return mixed
+     */
+    private function createArticles(ArticleRequest $request)
+    {
+        // Auth::user()->articles; // Collection
+        $article = \Auth::user()->articles()->create($request->all());
+
+        $this->syncTags($article, $request->input('tag_list'));
+
+        return $article;
     }
 }

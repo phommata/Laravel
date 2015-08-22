@@ -47,5 +47,7 @@ article_id  tag_id      created_at           updated_at
 Second record in this table associated the article with the coding tab has now been 
 removed, because we used the sync method in ArticlesController.php update method
 
+PHPStorm: Alt + Enter: Add method
 
+PHPStorm: Ctrl + N: Generate - PHPDoc Blocks - __construct & createArticles
 
