@@ -14,11 +14,8 @@ interface BarInterface{}
 
 class Bar implements BarInterface{}
 
-App::bind('BarInterface', function(){
+App::bind('BarInterface', 'Bar');
 
-    return new Bar;
-
-});
 
 Route::get('bar', function(BarInterface $bar){
     dd($bar);
