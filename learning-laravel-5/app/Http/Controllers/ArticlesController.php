@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     /**
      * Show a single article
      *
-     * @param Article $article
+     * @param Article $article - Uses route model binding
      * @return Response \Illuminate\View\View
      */
     public function show(Article $article){
@@ -60,12 +60,14 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Save a new article
+     * Save a new article.
      *
-     * @return Response
+     * @param ArticleRequest $request - Do a bit of automatic validation against the form
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(ArticleRequest $request){
 
+        // if validation passes
         $this->createArticles($request);
 
         // We need the id's of these tags, because we will ultimately attach all the id's that we want to associate, but
@@ -96,7 +98,7 @@ class ArticlesController extends Controller
      * Update an article.
      *
      * @param Article $article
-     * @param ArticleRequest $request
+     * @param ArticleRequest $request - Perform some validation, using the same form request class.
      * @return Response \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Article $article, ArticleRequest $request){
