@@ -32,8 +32,12 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function composeNavigation()
     {
-        view()->composer('partials.nav', function ($view) {
-            $view->with('latest', Article::latest()->first());
-        });
+        // Not pass a closure, pass a class path as a string
+        // Behind the scenes, Laravel will detect the attempt to resolve a class out of a service container
+        // and will trigger a specific method on it.
+        view()->composer('partials.nav', 'App\Http\Composers\NavigationComposer');
+//        view()->composer('partials.nav', function ($view) {
+//            $view->with('latest', Article::latest()->first());
+//        });
     }
 }
