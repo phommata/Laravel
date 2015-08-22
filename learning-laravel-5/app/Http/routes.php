@@ -13,8 +13,9 @@
 interface BarInterface{}
 
 class Bar implements BarInterface{}
+class SecondBar implements BarInterface{}
 
-App::bind('BarInterface', 'Bar');
+App::bind('BarInterface', 'SecondBar');
 
 
 Route::get('bar', function(BarInterface $bar){
