@@ -36,7 +36,8 @@ class RedirectIfAuthenticated
     {
         if ($this->auth->check()) { // same as Auth::check, but using dependency injection instead of Laravel façades,
                                     // which is good in many cases
-            return redirect('/home');
+//            return redirect('/home');
+            return 'Home Page';
         }
 
         return $next($request);
