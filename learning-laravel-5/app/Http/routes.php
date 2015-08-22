@@ -25,6 +25,9 @@ class Bar{
 
 }
 
+App::bind
+app()->bind
+
 Route::get('bar', function(Bar $bar){
     dd($bar->baz);
 });
