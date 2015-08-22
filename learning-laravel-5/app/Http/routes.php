@@ -26,7 +26,7 @@ class Bar{
 }
 
 Route::get('bar', function(Bar $bar){
-    dd($bar);
+    dd($bar->baz);
 });
 
 Route::get('/', 'WelcomeController@index');
