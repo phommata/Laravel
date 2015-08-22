@@ -106,7 +106,7 @@ class ArticlesController extends Controller
 
         $article->update($request->all());
 
-        $article->tags()->detach($request->input('tag_list'));
+        $article->tags()->sync($request->input('tag_list'));
 
         return redirect('articles');
     }
