@@ -8,3 +8,5 @@ Controller created successfully.
 http://laravel5.dev/foo
 
 PhpStorm: Alt + Enter - Initialize fields
+
+laravel5.dev/articles/create
