@@ -25,7 +25,7 @@ class Article extends Model
 
     public function scopeUnpublished($query){ // Article::published()
 
-            $query->where('published_at', '>', Carbon::now());
+        $query->where('published_at', '>', Carbon::now());
 
     }
 
@@ -41,7 +41,7 @@ class Article extends Model
     // ensure that we have an instance of Carbon
     public function getPublishedAtAttribute($date)
     {
-        return Carbon::parse($date)->format('Y-m-d');
+        return Carbon::parse($date);
     }
     /**
      * An article is owned by a user.
