@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Repositories;
 /**
  * Created by PhpStorm.
  * User: andrewphommathep
@@ -10,6 +10,8 @@ class FooRepository {
 
     public function get()
     {
-        return Post::all()
+        return ['array', 'of', 'items'];
     }
+
+
 }

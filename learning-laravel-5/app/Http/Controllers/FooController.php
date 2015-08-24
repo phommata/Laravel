@@ -9,7 +9,10 @@ use App\Http\Controllers\Controller;
 
 class FooController extends Controller
 {
-    public function foo(){
-        return 'foo';
+    public function foo()
+    {
+        $repository = new \App\Repositories\FooRepository();
+
+        return $repository->get();
     }
 }
