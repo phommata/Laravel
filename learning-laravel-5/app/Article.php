@@ -41,7 +41,7 @@ class Article extends Model
     // ensure that we have an instance of Carbon
     public function getPublishedAtAttribute($date)
     {
-        return (new Carbon($date))->format('Y-m-d');
+        return Carbon::parse($date)->format('Y-m-d');
     }
     /**
      * An article is owned by a user.
