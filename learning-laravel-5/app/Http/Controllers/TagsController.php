@@ -12,6 +12,8 @@ class TagsController extends Controller
 {
     public function show(Tag $tag)
     {
-        return $tag->articles;
+        $articles = $tag->articles;
+
+        return view('articles.index', compact('articles'));
     }
 }
