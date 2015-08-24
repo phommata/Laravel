@@ -1,5 +1,9 @@
 php artisan make:controller TagsController --plain
 Controller created successfully.
 
+tags
 http://laravel5.dev/tags/personal
 
+tags articles
+http://laravel5.dev/tags/personal
+http://laravel5.dev/tags/coding

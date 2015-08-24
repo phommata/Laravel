@@ -12,6 +12,6 @@ class TagsController extends Controller
 {
     public function show(Tag $tag)
     {
-        return $tag;
+        return $tag->articles;
     }
 }
