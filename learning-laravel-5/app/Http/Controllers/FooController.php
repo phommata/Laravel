@@ -10,18 +10,18 @@ use App\Http\Controllers\Controller;
 
 class FooController extends Controller
 {
-    private $repository;
+//    private $repository;
+//
+//    public function __construct(FooRepository $repository) // FooRepository is referenced by use full path
+//    {
+//
+//        $this->repository = $repository;
+//    }
 
-    public function __construct(FooRepository $repository) // FooRepository is referenced by use full path
-    {
-
-        $this->repository = $repository;
-    }
-
-    public function foo()
+    public function foo(FooRepository $repository)
     {
 //        $repository = new \App\Repositories\FooRepository();
 
-        return $this->repository->get();
+        return $repository->get();
     }
 }
