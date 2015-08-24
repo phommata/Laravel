@@ -10,21 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-interface BarInterface{}
 
-class Bar implements BarInterface{}
-class SecondBar implements BarInterface{}
+Route::get('foo', 'FooController@foo');
 
-app()->bind('BarInterface', 'Bar');
-
-
-Route::get('bar', function(BarInterface $bar){
-    $bar = app('BarInterface');
-
-    dd($bar);
-});
-
-Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'WelcomeController@index');
 
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
