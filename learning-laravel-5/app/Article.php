@@ -29,6 +29,7 @@ class Article extends Model
 
     }
 
+    // mutator/setter
     // setNameAttribute
     public function setPublishedAtAttribute($date){
 
@@ -36,6 +37,12 @@ class Article extends Model
 
     }
 
+    // accessor/getter
+    // ensure that we have an instance of Carbon
+    public function getPublishedAtAttribute($date)
+    {
+        return new Carbon($date);
+    }
     /**
      * An article is owned by a user.
      *
