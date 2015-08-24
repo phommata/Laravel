@@ -3,4 +3,5 @@ Use PHP's reflection to inject dependency through typehinting
 http://laravel5.dev/bar
 
 php artisan make:controller FooController --plain
+Controller created successfully.
 
