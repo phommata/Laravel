@@ -10,6 +10,6 @@ class FooRepository {
 
     public function get()
     {
-        return ['array', 'of', 'items'];
+        return Post::all()
     }
 }
