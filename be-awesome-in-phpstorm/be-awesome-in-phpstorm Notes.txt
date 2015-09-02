@@ -1,0 +1,15 @@
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew search xdebug
+homebrew/php/php53-xdebug     homebrew/php/php54-xdebug	    homebrew/php/php55-xdebug	  homebrew/php/php56-xdebug
+
+brew install homebrew/php/php55-xdebug
+
+php --ini
+Configuration File (php.ini) Path: /usr/local/etc/php/5.5
+Loaded Configuration File:         /usr/local/etc/php/5.5/php.ini
+Scan for additional .ini files in: /usr/local/etc/php/5.5/conf.d
+Additional .ini files parsed:      /usr/local/etc/php/5.5/conf.d/ext-xdebug.ini
+
+cat /usr/local/etc/php/5.5/php.ini
+
